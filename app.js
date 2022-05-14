@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const app = express();
+const mainRouter = require('./routers/mainRouter');
 
 const publicPath = path.resolve(__dirname, './public');
 
@@ -10,14 +11,8 @@ app.use(express.static(publicPath));
 
 app.listen(port, () => console.log("Server up & running on port "+port));
 
-app.get('/', (req,res) => {
-    res.sendFile(path.resolve(__dirname, './views/index.html'));
-});
+app.set('view engine', 'ejs');
 
-app.get('/register', (req,res) => {
-    res.sendFile(path.resolve(__dirname, './views/register.html'));
-})
+app.set('views', path.resolve(__dirname, './views'));
 
-app.get('/login', (req,res) => {
-    res.sendFile(path.resolve(__dirname, './views/login.html'));
-})
+app.use('/', mainRouter);
