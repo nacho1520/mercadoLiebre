@@ -4,6 +4,8 @@ const mainController = require('../controllers/mainController');
 
 router.get('/', mainController.home);
 
+router.get('/search', mainController.search);
+
 router.get('/login', mainController.login);
 
 router.get('/register', mainController.register);

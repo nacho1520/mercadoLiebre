@@ -66,6 +66,10 @@ header.logo{
     padding: 5px 50px 5px 5px;
 }
 
+.search-bar::-webkit-search-cancel-button {
+    display: none;
+}
+
 .search-bar::placeholder {
     font-size: 12px;
 }
